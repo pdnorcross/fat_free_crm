@@ -3,7 +3,7 @@
 ---
 development: &development
   adapter: sqlite3
-  database: db/fat_free_crm_development.sqlite3
+  database: db/rev_crm_development.sqlite3
   pool: 5
   timeout: 5000
 
@@ -12,12 +12,12 @@ development: &development
 # Do not set this db to the same as development or production.
 test:
   <<: *development
-  database: db/fat_free_crm_test.sqlite3
+  database: db/rev_crm_test.sqlite3
 
 production:
   <<: *development
-  database: db/fat_free_crm_production.sqlite3
+  database: db/rev_crm_production.sqlite3
 
 staging:
   <<: *development
-  database: db/fat_free_crm_staging.sqlite3
+  database: db/rev_crm_staging.sqlite3

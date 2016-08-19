@@ -196,4 +196,25 @@ Rails.application.routes.draw do
     resources :settings, only: :index
     resources :plugins,  only: :index
   end
+
+  namespace :api, defaults: { format: 'json' }do
+    namespace :v1 do
+      resources :contacts, except: [:index, :new, :create, :show, :edit, :update, :destroy] do
+        collection do
+          #get  :get_contact_housing
+          #post :housing_contact
+          #get 'new' => "contacts#new"
+          match 'new/:type', to: 'contacts#new', via: [:get, :post]
+        end
+      end
+      resources :leads, except: [:index, :new, :create, :show, :edit, :update, :destroy] do
+        collection do
+          #get  :get_leads
+          #match 'new', to: 'leads#new', via: [:get, :post]
+          #post :convert_lead
+        end
+      end
+    end
+  end
+
 end
